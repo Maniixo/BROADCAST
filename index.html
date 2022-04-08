@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body{
+                background-color: darkslateblue;
+            }
+            h1, h2 {
+                text-transform: uppercase;
+                font-family: monospace;
+                text-align: center;
+                font-size: 70px;
+                color: azure;
+            }
+            h2{
+                text-align: left;
+                font-size: 50px;
+            }
+            textarea{
+                border-radius: 10px;
+                padding: 20px 20px;
+            }
+            ul li{
+                list-style-type: none;
+                text-transform: uppercase;
+                font-family: monospace;
+                font-size: larger;
+            }
+            ul input{
+                width: 100%;
+                border: none;
+                user-select: auto;
+                text-transform: uppercase;
+                font-family: monospace;
+                font-size: larger;
+            }
+            .mailsDiv{
+                background-color: white;
+                border-radius: 20px;
+                padding: 10px 20px;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/bootstrap.min.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>broadcast sender</h1>
+        <form action="http://localhost:5100/sendMails" method="post">
+            <div class="container">
+                <div class="row pt-5">
+                    <div class="col-6">
+                        <h2>Enter the Email addresses</h2>
+                        <div class="">
+                            <label for="inputAddress">Email Address:</label>
+                            <input type="text" style="width:50%;" id="inputAddress">
+                            <button class="btn btn-primary" onclick="Add()">Add</button>
+                                <ul id="emails" class="mailsDiv">
+                                </ul>
+                                <button class="btn btn-success" type="submit">Send</button>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="mssg">
+                            <h2>Enter the message</h2>
+                            <textarea name="message" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    <script src="/jQuery.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <script>
+        function Add(){
+            var ul = document.getElementById("emails");
+            var input = document.createElement("input");
+            var enteredEmail = document.getElementById('inputAddress').value;
+            input.setAttribute("name",enteredEmail);
+            input.setAttribute("value",enteredEmail);
+            ul.appendChild(input);
+        }
+    </script>
+    </body>
+</html>
